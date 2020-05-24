@@ -2,6 +2,9 @@ import nltk
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 
+import warnings
+warnings.filterwarnings("ignore")
+
 import numpy
 import tflearn
 import tensorflow
