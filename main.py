@@ -6,7 +6,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 import numpy
-import tensorflow
+import tensorflow._api.v2.compat.v1 as tf
 import random
 import json
 
@@ -56,3 +56,5 @@ for x, doc in enumerate(docs_x):
 
 training = numpy.array(training)
 output = numpy.array(output)
+
+tf.reset_default_graph()
