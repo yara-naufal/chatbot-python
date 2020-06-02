@@ -8,4 +8,4 @@ RUN python -m nltk.downloader punkt
 
 COPY . .
 
-CMD [ "python", "./main.py" ]
+RUN python -W ignore ./main.py
