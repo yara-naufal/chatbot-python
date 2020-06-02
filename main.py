@@ -6,7 +6,8 @@ import warnings
 warnings.filterwarnings("ignore")
 
 import numpy
-import tensorflow._api.v2.compat.v1 as tf
+import tflearn
+import tensorflow as tf
 import random
 import json
 
@@ -57,4 +58,10 @@ for x, doc in enumerate(docs_x):
 training = numpy.array(training)
 output = numpy.array(output)
 
-tf.reset_default_graph()
+tf.compat.v1.reset_default_graph()
+
+net = tflearn.input_data(shape=[None, len(training[0])])
+net = tflearn.fully_connected(net, 8)
+net = tflearn.fully_connected(net, 8)
+net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
+net = tflearn.regression(net)
