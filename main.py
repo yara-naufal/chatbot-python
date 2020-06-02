@@ -6,8 +6,12 @@ import warnings
 warnings.filterwarnings("ignore")
 
 import numpy
+import os
+import sys
+sys.stderr = open(os.devnull, "w")
 import tflearn
 import tensorflow as tf
+sys.stderr = sys.__stderr__
 import random
 import json
 
@@ -67,3 +71,6 @@ net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
 net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
+
+model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
+model.save("model.tflearn")
