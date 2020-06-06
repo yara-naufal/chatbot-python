@@ -98,6 +98,8 @@ def chat():
             break
 
         results = model.predict([bag_of_words(inp, words)])
-        print(results)
+        results_index = numpy.argmax(results)
+        tag = labels[results_index]
+        print(tag)
 
 chat()
