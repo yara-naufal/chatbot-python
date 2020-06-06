@@ -1,7 +1,3 @@
-import nltk
-from nltk.stem.lancaster import LancasterStemmer
-stemmer = LancasterStemmer()
-
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -9,6 +5,9 @@ import numpy
 import os
 import sys
 sys.stderr = open(os.devnull, "w")
+import nltk
+from nltk.stem.lancaster import LancasterStemmer
+stemmer = LancasterStemmer()
 import tflearn
 import tensorflow as tf
 sys.stderr = sys.__stderr__
