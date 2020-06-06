@@ -89,3 +89,12 @@ def bag_of_words(s, words):
                 bag[i].append(1)
     
     return numpy.array(bag)
+
+def chat():
+    print("You can start talking with the bot! (type 'quit' to exit)")
+    while True:
+        inp = input("You: ")
+        if inp.lower() == "quit":
+            break
+
+        results = model.predict([bag_of_words(inp, words)])
